@@ -1,9 +1,9 @@
-package generator.templates;
+package com.joshlong.templates;
 
 import com.samskivert.mustache.Mustache;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.util.StringUtils;
@@ -11,11 +11,13 @@ import org.springframework.util.StringUtils;
 import java.nio.charset.Charset;
 
 @Configuration
-class TemplateConfiguration {
+@EnableConfigurationProperties (TemplateProperties.class)
+public class TemplateAutoConfiguration {
 
 	private final Charset charset;
 
-	TemplateConfiguration(@Value("${podcasts.generator.charset:}") String charset) {
+	public TemplateAutoConfiguration(TemplateProperties templateProperties) {
+		var charset = templateProperties.getCharset() ;
 		this.charset = !StringUtils.hasText(charset) ? Charset.defaultCharset() : Charset.forName(charset);
 	}
 

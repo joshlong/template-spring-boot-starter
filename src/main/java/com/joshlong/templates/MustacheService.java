@@ -1,4 +1,4 @@
-package generator.templates;
+package com.joshlong.templates;
 
 import com.samskivert.mustache.Mustache;
 import lombok.SneakyThrows;
@@ -14,7 +14,7 @@ public class MustacheService {
 
 	private final Charset charset;
 
-	MustacheService(Mustache.Compiler compiler, Charset charset) {
+	public MustacheService(Mustache.Compiler compiler, Charset charset) {
 		this.compiler = compiler;
 		this.charset = charset;
 	}

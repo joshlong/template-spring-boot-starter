@@ -1,1 +1,1 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.joshlong.git.GitTemplateAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.joshlong.templates.TemplateAutoConfiguration

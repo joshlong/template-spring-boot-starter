@@ -1,4 +1,4 @@
-package generator.templates;
+package com.joshlong.templates;
 
 import lombok.SneakyThrows;
 import org.commonmark.parser.Parser;
@@ -13,7 +13,7 @@ public class MarkdownService {
 
 	private final HtmlRenderer renderer;
 
-	MarkdownService(Parser parser, HtmlRenderer renderer) {
+	public MarkdownService(Parser parser, HtmlRenderer renderer) {
 		this.parser = parser;
 		this.renderer = renderer;
 	}
