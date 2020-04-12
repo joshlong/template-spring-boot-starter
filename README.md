@@ -1,5 +1,5 @@
-# Simple utilities for working with a Git codebase 
+# Simple utilities for using templating languages 
 
-![CI](https://github.com/joshlong/git-spring-boot-starter/workflows/CI/badge.svg)
+![CI](https://github.com/joshlong/template-spring-boot-starter/workflows/CI/badge.svg)
 
-Some utilities to make working with Git a little easier from within my Spring applications.
+Some utilities to make working with templating languages like Markdown and Freemarker just a little bit easier.
