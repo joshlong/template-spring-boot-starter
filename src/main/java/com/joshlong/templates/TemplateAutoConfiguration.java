@@ -11,13 +11,13 @@ import org.springframework.util.StringUtils;
 import java.nio.charset.Charset;
 
 @Configuration
-@EnableConfigurationProperties (TemplateProperties.class)
+@EnableConfigurationProperties(TemplateProperties.class)
 public class TemplateAutoConfiguration {
 
 	private final Charset charset;
 
 	public TemplateAutoConfiguration(TemplateProperties templateProperties) {
-		var charset = templateProperties.getCharset() ;
+		var charset = templateProperties.getCharset();
 		this.charset = !StringUtils.hasText(charset) ? Charset.defaultCharset() : Charset.forName(charset);
 	}
 
