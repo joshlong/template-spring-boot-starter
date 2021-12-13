@@ -1,17 +1,14 @@
 package com.joshlong.templates;
 
 import lombok.extern.log4j.Log4j2;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.io.Resource;
-import org.springframework.test.context.junit4.SpringRunner;
 
 @Log4j2
-@RunWith(SpringRunner.class)
 @SpringBootTest
 public class MarkdownServiceTest {
 
@@ -25,10 +22,10 @@ public class MarkdownServiceTest {
 	public void markdown() throws Exception {
 		String markdownHtml = this.markdownService.convertMarkdownTemplateToHtml(this.resource);
 		log.debug(markdownHtml);
-		Assert.assertTrue(markdownHtml.contains("<li>Now is the time</li>"));
-		Assert.assertTrue(markdownHtml.contains("<h2>A Subheader</h2>"));
-		Assert.assertTrue(markdownHtml.contains("<a href=\"http://slashdot.org\">nonsense</a>"));
-		Assert.assertTrue(markdownHtml.contains("<h1>A Simple Markdown Document</h1>"));
+		Assertions.assertTrue(markdownHtml.contains("<li>Now is the time</li>"));
+		Assertions.assertTrue(markdownHtml.contains("<h2>A Subheader</h2>"));
+		Assertions.assertTrue(markdownHtml.contains("<a href=\"http://slashdot.org\">nonsense</a>"));
+		Assertions.assertTrue(markdownHtml.contains("<h1>A Simple Markdown Document</h1>"));
 	}
 
 }

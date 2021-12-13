@@ -4,14 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.io.Resource;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.Instant;
 import java.time.ZoneId;
@@ -22,7 +20,6 @@ import java.util.Map;
 
 @Log4j2
 @SpringBootTest
-@RunWith(SpringRunner.class)
 public class MustacheServiceTest {
 
 	@Autowired
@@ -54,9 +51,9 @@ public class MustacheServiceTest {
 		var html = this.service.convertMustacheTemplateToHtml(this.sample, context);
 		log.info("html: " + html);
 
-		Assert.assertTrue(html.contains("href=\"http://cnn.com\""));
-		Assert.assertTrue(html.contains("href=\"http://microsoft.com\""));
-		Assert.assertTrue(html.contains("2019-07-10"));
+		Assertions.assertTrue(html.contains("href=\"http://cnn.com\""));
+		Assertions.assertTrue(html.contains("href=\"http://microsoft.com\""));
+		Assertions.assertTrue(html.contains("2019-07-10"));
 	}
 
 }
