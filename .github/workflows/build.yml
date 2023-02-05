@@ -1,9 +1,5 @@
 name: CI
 
-# env:
-#   ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME  }}
-#   ARTIFACTORY_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD  }}
-
 on:
   push:
     branches: [ master ]
