@@ -1,2 +1,0 @@
-org.springframework.nativex.type.NativeConfiguration=com.joshlong.templates.graalvm.TemplateNativeConfiguration
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.joshlong.templates.TemplateAutoConfiguration

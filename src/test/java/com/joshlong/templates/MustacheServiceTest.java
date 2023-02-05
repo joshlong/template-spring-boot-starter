@@ -26,15 +26,9 @@ public class MustacheServiceTest {
 	private MustacheService service;
 
 	@Value("classpath:templates/sample.mustache")
-	Resource sample;
+	private Resource sample;
 
-	@Data
-	@AllArgsConstructor
-	@NoArgsConstructor
-	public static class Link {
-
-		private String href, description;
-
+	record Link(String href, String description) {
 	}
 
 	@Test
@@ -43,14 +37,13 @@ public class MustacheServiceTest {
 		var formatter = DateTimeFormatter.ISO_LOCAL_DATE.withLocale(Locale.US)
 				.withZone(ZoneId.of(ZoneId.SHORT_IDS.get("PST")));
 
-		Instant now = Instant.ofEpochSecond(1562812157);
+		var now = Instant.ofEpochSecond(1562812157);
 		var context = Map.of("date", formatter.format(now), //
 				"links", List.of(new Link("http://cnn.com", "A link to CNN"),
 						new Link("http://microsoft.com", "a link to Microsoft")));
 
 		var html = this.service.convertMustacheTemplateToHtml(this.sample, context);
 		log.info("html: " + html);
-
 		Assertions.assertTrue(html.contains("href=\"http://cnn.com\""));
 		Assertions.assertTrue(html.contains("href=\"http://microsoft.com\""));
 		Assertions.assertTrue(html.contains("2019-07-10"));
